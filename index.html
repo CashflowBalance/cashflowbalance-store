@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CashflowBalance — Premium Guides for the Intentional Entrepreneur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F0F0F;
+    --card-border: rgba(255,255,255,0.08);
+    --text-dim: #9a9a96;
+    --text-mid: #c9c9c4;
+
+    --vendor-navy: #0D1B2A;
+    --vendor-red: #C0392B;
+
+    --commission-navy: #0A0F1E;
+    --commission-blue: #1B3FE4;
+
+    --travel-green: #1A3A2A;
+    --travel-gold: #C9A84C;
+
+    --csr-cream: #FAFAF7;
+    --csr-terracotta: #C4622D;
+    --csr-charcoal: #1C1C1C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: #f4f4f2;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  a { color: inherit; }
+
+  /* ---------- HEADER ---------- */
+  header {
+    padding: 90px 0 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .wordmark {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+
+  .wordmark span {
+    background: linear-gradient(120deg, #C9A84C 0%, #C0392B 35%, #1B3FE4 65%, #C4622D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tagline {
+    font-size: 1.15rem;
+    color: var(--text-mid);
+    letter-spacing: 0.01em;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .header-rule {
+    margin: 40px auto 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #C9A84C, #C0392B, #1B3FE4, #C4622D);
+    border-radius: 2px;
+  }
+
+  /* ---------- INTRO ---------- */
+  .intro {
+    text-align: center;
+    padding: 64px 0 20px;
+  }
+
+  .intro .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .intro h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ---------- PRODUCT GRID ---------- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    padding: 56px 0 24px;
+  }
+
+  @media (max-width: 880px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border-radius: 22px;
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  }
+
+  .card-top {
+    padding: 36px 32px 28px;
+    flex-grow: 1;
+  }
+
+  .card-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+
+  .card-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    opacity: 0.78;
+    margin-bottom: 24px;
+    max-width: 440px;
+  }
+
+  .card-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .stat-pill {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 100px;
+    border: 1px solid currentColor;
+    opacity: 0.9;
+  }
+
+  .card-bottom {
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .card-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .card-price-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.6;
+    display: block;
+    margin-top: 2px;
+    font-weight: 600;
+  }
+
+  .buy-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  .buy-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+
+  /* ---- Vendor Contract card ---- */
+  .card.vendor {
+    background: var(--vendor-navy);
+    color: #f4ece9;
+  }
+  .card.vendor .card-eyebrow { color: var(--vendor-red); }
+  .card.vendor .card-title { font-family: 'DM Serif Display', serif; font-weight: 400; }
+  .card.vendor .stat-pill { color: var(--vendor-red); border-color: rgba(192,57,43,0.5); }
+  .card.vendor .card-bottom { background: rgba(192,57,43,0.08); }
+  .card.vendor .buy-btn { background: var(--vendor-red); color: #fff; }
+
+  /* ---- Commission Guide card ---- */
+  .card.commission {
+    background: var(--commission-navy);
+    color: #e9ecf7;
+  }
+  .card.commission .card-eyebrow { color: var(--commission-blue); }
+  .card.commission .card-title { font-family: 'Space Grotesk', sans-serif; }
+  .card.commission .stat-pill { color: var(--commission-blue); border-color: rgba(27,63,228,0.5); }
+  .card.commission .card-bottom { background: rgba(27,63,228,0.08); }
+  .card.commission .buy-btn { background: var(--commission-blue); color: #fff; }
+
+  /* ---- Travel Guide card ---- */
+  .card.travel {
+    background: var(--travel-green);
+    color: #f3efe2;
+  }
+  .card.travel .card-eyebrow { color: var(--travel-gold); }
+  .card.travel .card-title { font-family: 'Playfair Display', serif; }
+  .card.travel .stat-pill { color: var(--travel-gold); border-color: rgba(201,168,76,0.5); }
+  .card.travel .card-bottom { background: rgba(201,168,76,0.08); }
+  .card.travel .buy-btn { background: var(--travel-gold); color: var(--travel-green); }
+
+  /* ---- CSR Playbook card ---- */
+  .card.csr {
+    background: var(--csr-cream);
+    color: var(--csr-charcoal);
+  }
+  .card.csr .card-eyebrow { color: var(--csr-terracotta); }
+  .card.csr .card-title { font-family: 'Fraunces', serif; }
+  .card.csr .card-desc { opacity: 0.65; }
+  .card.csr .stat-pill { color: var(--csr-terracotta); border-color: rgba(196,98,45,0.4); }
+  .card.csr .card-bottom { background: rgba(196,98,45,0.06); border-top-color: rgba(28,28,28,0.08); }
+  .card.csr .buy-btn { background: var(--csr-terracotta); color: #fff; }
+
+  /* ---------- BUNDLE ---------- */
+  .bundle {
+    margin: 64px 0 90px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0c0c0c 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bundle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(201,168,76,0.08), rgba(192,57,43,0.06), rgba(27,63,228,0.08), rgba(196,98,45,0.06));
+    pointer-events: none;
+  }
+
+  .bundle-content { position: relative; }
+
+  .bundle .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--travel-gold);
+    margin-bottom: 18px;
+  }
+
+  .bundle h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .bundle p.lede {
+    color: var(--text-mid);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    font-size: 1.05rem;
+  }
+
+  .bundle-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .bundle-price {
+    font-family: 'Fraunces', serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+  }
+
+  .bundle-price-old {
+    font-size: 1.4rem;
+    color: var(--text-dim);
+    text-decoration: line-through;
+  }
+
+  .bundle-save {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--travel-gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+  }
+
+  .bundle-includes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .bundle-includes span {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.14);
+    color: var(--text-mid);
+  }
+
+  .bundle .cta-btn {
+    display: inline-block;
+    background: linear-gradient(120deg, #C9A84C, #C4622D);
+    color: #1a1300;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 18px 44px;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgba(201,168,76,0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .bundle .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(201,168,76,0.35);
+  }
+
+  .bundle .cta-sub {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--card-border);
+    padding: 36px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  footer .wordmark-small {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: #f4f4f2;
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="wordmark"><span>CashflowBalance</span></div>
+      <p class="tagline">Premium guides for the intentional entrepreneur.</p>
+      <div class="header-rule"></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <div class="intro">
+      <div class="eyebrow">The Library</div>
+      <h2>Four practical playbooks. One mission: help small business owners run leaner, sell smarter, and build something worth being proud of.</h2>
+    </div>
+
+    <div class="grid">
+
+      <!-- VENDOR CONTRACT -->
+      <div class="card vendor">
+        <div class="card-top">
+          <div class="card-eyebrow">Operations &amp; Negotiation</div>
+          <div class="card-title">The SMB Vendor Contract Audit Framework &amp; Negotiation Scripts</div>
+          <p class="card-desc">
+            A practical framework for auditing vendor contracts, spotting costly traps,
+            and negotiating better terms — with ready-to-use scripts for the conversations
+            that actually move the needle.
+          </p>
+          <div class="card-stats">
+            <span class="stat-pill">33-Page PDF</span>
+            <span class="stat-pill">Negotiation Scripts</span>
+            <span class="stat-pill">Audit Framework</span>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <div>
+            <div class="card-price">$79</div>
+            <span class="card-price-label">Instant PDF Download</span>
+          </div>
+          <a class="buy-btn" href="https://cashflowbalance.gumroad.com/l/guqrtg" target="_blank" rel="noopener">Get the Guide</a>
+        </div>
+      </div>
+
+      <!-- COMMISSION GUIDE -->
+      <div class="card commission">
+        <div class="card-top">
+          <div class="card-eyebrow">Custom &amp; High-Ticket Builds</div>
+          <div class="card-title">The Commission Confidence Guide</div>
+          <p class="card-desc">
+            How to brief, vet, and manage any high-ticket custom build — from first
+            conversation to final delivery — without getting burned on cost, scope,
+            or quality.
+          </p>
+          <div class="card-stats">
+            <span class="stat-pill">Vetting Checklists</span>
+            <span class="stat-pill">Brief Templates</span>
+            <span class="stat-pill">Red-Flag Guide</span>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <div>
+            <div class="card-price">$79</div>
+            <span class="card-price-label">Instant PDF Download</span>
+          </div>
+          <a class="buy-btn" href="https://cashflowbalance.gumroad.com/l/enzfu" target="_blank" rel="noopener">Get the Guide</a>
+        </div>
+      </div>
+
+      <!-- TRAVEL GUIDE -->
+      <div class="card travel">
+        <div class="card-top">
+          <div class="card-eyebrow">Bespoke Travel</div>
+          <div class="card-title">The High-Ticket Travel Guide</div>
+          <p class="card-desc">
+            Luxury, adventure, and hidden gems across America — a region-by-region guide
+            to the experiences worth the splurge, the trips worth the planning, and the
+            places most travelers never find.
+          </p>
+          <div class="card-stats">
+            <span class="stat-pill">42 Destinations</span>
+            <span class="stat-pill">7 Regions</span>
+            <span class="stat-pill">Planning Tools</span>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <div>
+            <div class="card-price">$49</div>
+            <span class="card-price-label">Instant PDF Download</span>
+          </div>
+          <a class="buy-btn" href="https://cashflowbalance.gumroad.com/l/bmufhf" target="_blank" rel="noopener">Get the Guide</a>
+        </div>
+      </div>
+
+      <!-- CSR PLAYBOOK -->
+      <div class="card csr">
+        <div class="card-top">
+          <div class="card-eyebrow">Brand &amp; Values</div>
+          <div class="card-title">The Small Business CSR Playbook</div>
+          <p class="card-desc">
+            Do good, mean it, and market better. A practical playbook for building a
+            genuine Corporate Social Responsibility program — and turning it into one
+            of your strongest brand assets.
+          </p>
+          <div class="card-stats">
+            <span class="stat-pill">5 CSR Pillars</span>
+            <span class="stat-pill">90-Day Roadmap</span>
+            <span class="stat-pill">5 Documents</span>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <div>
+            <div class="card-price">$29</div>
+            <span class="card-price-label">Instant PDF Download</span>
+          </div>
+          <a class="buy-btn" href="https://cashflowbalance.gumroad.com/l/neraos" target="_blank" rel="noopener">Get the Guide</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="bundle">
+      <div class="bundle-content">
+        <div class="eyebrow">The Complete Bundle</div>
+        <h2>All 4 guides. One investment.</h2>
+        <p class="lede">
+          Everything you need to run leaner operations, negotiate better deals, manage
+          high-ticket builds with confidence, plan extraordinary travel, and build a brand
+          customers trust — in one bundle.
+        </p>
+
+        <div class="bundle-price-row">
+          <span class="bundle-price">$197</span>
+          <span class="bundle-price-old">$236</span>
+        </div>
+        <div class="bundle-save">Save $39 vs. buying separately</div>
+
+        <div class="bundle-includes">
+          <span>Vendor Contract Audit Framework — $79</span>
+          <span>Commission Confidence Guide — $79</span>
+          <span>High-Ticket Travel Guide — $49</span>
+          <span>Small Business CSR Playbook — $29</span>
+        </div>
+
+        <a class="cta-btn" href="https://cashflowbalance.gumroad.com" target="_blank" rel="noopener">Visit the Store on Gumroad</a>
+        <div class="cta-sub">Bundle pricing available at checkout — or grab each guide individually above.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="wordmark-small">CashflowBalance</div>
+      &copy; 2026 CashflowBalance. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
