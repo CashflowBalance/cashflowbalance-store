@@ -19,7 +19,6 @@
       --gold-dim: #a8895a;
       --white: #f0ede8;
       --muted: #777770;
-      --red: #e05252;
     }
 
     body {
@@ -165,93 +164,11 @@
       display: block;
     }
 
-    .form-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    input[type="email"] {
-      flex: 1;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 0.875rem 1rem;
-      font-size: 0.9rem;
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      outline: none;
-      transition: border-color 0.15s;
-      -webkit-appearance: none;
-    }
-
-    input[type="email"]::placeholder { color: #444; }
-    input[type="email"]:focus { border-color: rgba(201,169,110,0.5); }
-    input[type="email"].error { border-color: var(--red); }
-
-    button[type="submit"] {
-      background: var(--gold);
-      color: #0a0a0a;
-      border: none;
-      border-radius: 5px;
-      padding: 0.875rem 1.5rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s, transform 0.1s;
-      -webkit-appearance: none;
-    }
-
-    button[type="submit"]:hover { background: var(--gold-dim); }
-    button[type="submit"]:active { transform: scale(0.98); }
-    button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
-
     .form-note {
       font-size: 0.72rem;
       color: var(--muted);
       line-height: 1.5;
-    }
-
-    .error-msg {
-      font-size: 0.78rem;
-      color: var(--red);
-      margin-top: 0.5rem;
-      display: none;
-    }
-
-    .success {
-      display: none;
-      text-align: center;
-      padding: 2rem 0;
-    }
-
-    .success-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,169,110,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
-      font-size: 1.1rem;
-    }
-
-    .success h2 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-
-    .success p {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
+      margin-top: 1rem;
     }
 
     .scarcity {
@@ -282,8 +199,6 @@
 
     @media (max-width: 520px) {
       .pillars { grid-template-columns: 1fr; }
-      .form-row { flex-direction: column; }
-      button[type="submit"] { width: 100%; }
       main { padding: 3rem 1.25rem 3rem; }
       header { padding: 1.25rem; }
     }
@@ -336,27 +251,8 @@
 
     <div class="form-section">
       <span class="form-label">Reserve your place</span>
-      <div id="form-wrap">
-        <form id="reservation-form" novalidate>
-          <div class="form-row">
-            <input
-              type="email"
-              id="email"
-              placeholder="your@email.com"
-              autocomplete="email"
-              required
-            >
-            <button type="submit" id="submit-btn">Reserve</button>
-          </div>
-          <p class="form-note">You'll be notified when the first run is ready. No spam. Unsubscribe anytime.</p>
-          <p class="error-msg" id="error-msg">Please enter a valid email address.</p>
-        </form>
-      </div>
-      <div class="success" id="success">
-        <div class="success-mark">✓</div>
-        <h2>You're on the list.</h2>
-        <p>We'll reach out when the first run of The Founder's Library is ready.<br>You'll have early access before it opens to the public.</p>
-      </div>
+      <div class="ml-embedded" data-form="190034410253321564"></div>
+      <p class="form-note">You'll be notified when the first run is ready. No spam. Unsubscribe anytime.</p>
     </div>
 
     <p class="scarcity">First run is <span>limited quantity</span> — reservations determine print count.<br>Early reservations receive priority access and founding member pricing.</p>
@@ -375,58 +271,6 @@
 ml('account', '2424464');
 </script>
 <!-- End MailerLite Universal -->
-
-<script>
-  const MAILERLITE_GROUP_ID = '190034406844401383';
-
-  const form = document.getElementById('reservation-form');
-  const emailInput = document.getElementById('email');
-  const submitBtn = document.getElementById('submit-btn');
-  const errorMsg = document.getElementById('error-msg');
-  const formWrap = document.getElementById('form-wrap');
-  const success = document.getElementById('success');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = emailInput.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    emailInput.classList.remove('error');
-    errorMsg.style.display = 'none';
-
-    if (!emailRegex.test(email)) {
-      emailInput.classList.add('error');
-      errorMsg.style.display = 'block';
-      emailInput.focus();
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Reserving...';
-
-    try {
-      const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          groups: [MAILERLITE_GROUP_ID]
-        })
-      });
-
-      formWrap.style.display = 'none';
-      success.style.display = 'block';
-
-    } catch (err) {
-      formWrap.style.display = 'none';
-      success.style.display = 'block';
-      console.error('Reservation error:', err);
-    }
-  });
-</script>
 
 </body>
 </html>
