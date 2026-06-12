@@ -146,12 +146,66 @@
       line-height: 1.55;
     }
 
+    .volumes, .benefits {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .volume-list, .benefits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .volume-list li, .benefits-list li {
+      font-size: 0.85rem;
+      color: var(--white);
+      line-height: 1.5;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .volume-list li::before, .benefits-list li::before {
+      content: '◇';
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
     .form-section {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 2rem;
       margin-bottom: 1.5rem;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .price-amount {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .price-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     .form-label {
@@ -249,13 +303,40 @@
       </div>
     </div>
 
+    <div class="volumes">
+      <span class="form-label">Inaugural Volumes — First Run</span>
+      <ul class="volume-list">
+        <li>SMB Vendor Contract Audit Framework &amp; Negotiation Scripts</li>
+        <li>Commission Confidence Guide</li>
+        <li>The Small Business CSR Playbook</li>
+      </ul>
+    </div>
+
+    <div class="benefits">
+      <span class="form-label">Founding Member Benefits</span>
+      <ul class="benefits-list">
+        <li>Professionally printed copies of all inaugural volumes</li>
+        <li>Numbered Founding Member Certificate</li>
+        <li>Founder's Letter explaining the philosophy and vision behind the collection</li>
+        <li>Founder's Library Bookmark</li>
+        <li>Exclusive Founder Collection merchandise, not available to future purchasers</li>
+        <li>PDF versions of all included volumes</li>
+        <li>Future updates to purchased volumes</li>
+        <li>Priority notification of future Founder's Library releases</li>
+      </ul>
+    </div>
+
     <div class="form-section">
       <span class="form-label">Reserve your place</span>
+      <div class="price-row">
+        <span class="price-amount">$29</span>
+        <span class="price-desc">to reserve your place — credited in full toward your $197 Founding Edition</span>
+      </div>
       <div class="ml-embedded" data-form="190034410253321564"></div>
       <p class="form-note">You'll be notified when the first run is ready. No spam. Unsubscribe anytime.</p>
     </div>
 
-    <p class="scarcity">First run is <span>limited quantity</span> — reservations determine print count.<br>Early reservations receive priority access and founding member pricing.</p>
+    <p class="scarcity">Only <span>20 Founding Member spots</span> are available — each certificate individually numbered.<br>First run is <span>limited quantity</span> — reservations determine print count.<br>Early reservations receive priority access and founding member pricing.</p>
 
   </div>
 </main>
